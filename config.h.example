@@ -1,5 +1,13 @@
 /*
   ============================================================================
+  config.h.example — TEMPLATE. Copy this file to config.h and fill in your
+  actual WiFi credentials, laptop IP, and bot name. config.h itself is
+  git-ignored (see .gitignore) so your real WiFi password never gets
+  committed to the repo.
+
+  Setup: cp config.h.example config.h    (then edit config.h with real values)
+  ============================================================================
+
   config.h — ALL pins, settings, and mode switches live here.
   If something's wired differently than assumed, or you need to swap a pin
   because of a conflict, change it HERE ONLY. Every other file references
@@ -24,10 +32,12 @@
 
 // ---------------------------------------------------------------------------
 // WIFI SETTINGS (only used if TRANSPORT_MODE == TRANSPORT_WIFI)
+// FILL THESE IN with your actual network — do not commit real values if this
+// file is config.h (only config.h.example should be pushed with placeholders).
 // ---------------------------------------------------------------------------
-#define WIFI_SSID          "Infinix NOTE 11 Pro"
-#define WIFI_PASSWORD      "pak12345"
-#define PC_SERVER_IP       "10.254.13.202"   // <-- set to your laptop's LAN IP (run `ipconfig` on PC)
+#define WIFI_SSID          "YOUR_WIFI_SSID_HERE"
+#define WIFI_PASSWORD      "YOUR_WIFI_PASSWORD_HERE"
+#define PC_SERVER_IP       "YOUR_LAPTOP_LAN_IP_HERE"   // <-- run `ipconfig` on PC while on the SAME network as the ESP32
 #define PC_SERVER_PORT     8765
 #define WIFI_CONNECT_TIMEOUT_MS   15000
 
@@ -107,7 +117,7 @@
 // WAKE WORD / CONVERSATION SESSION SETTINGS
 // ---------------------------------------------------------------------------
 // Bot's name — spoken by the PC bridge's wake-word check. Change freely.
-#define BOT_NAME                    "Laiba"
+#define BOT_NAME                    "Aria"
 
 // While IDLE (not in an active conversation), the ESP32 sends short rolling
 // chunks to the PC for wake-word checking. Short = fast to check, cheap,
@@ -119,7 +129,7 @@
 // Chunks below this peak amplitude are silence/noise and are never sent,
 // which is what keeps continuous listening from spamming the network/API
 // nonstop while the room is just quiet ambient noise.
-#define VAD_PEAK_THRESHOLD          5000
+#define VAD_PEAK_THRESHOLD          400
 
 // Once a conversation session is ACTIVE (triggered by button or wake word),
 // how long to wait with no detected speech before auto-ending the session

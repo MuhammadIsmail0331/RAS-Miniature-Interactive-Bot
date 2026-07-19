@@ -272,12 +272,12 @@ inline void faceUpdate() {
   unsigned long frameInterval;
 
   switch (_currentState) {
-    case FACE_IDLE:       frameInterval = 80;  break; // needs frequent ticks for smooth 40-frame blink/glance cycle
-    case FACE_LISTENING:  frameInterval = 60;  break; // smooth sweep motion
-    case FACE_THINKING:   frameInterval = 60;  break; // smooth orbit motion
+    case FACE_IDLE:       frameInterval = 140;  break; // needs frequent ticks for smooth 40-frame blink/glance cycle
+    case FACE_LISTENING:  frameInterval = 100;  break; // smooth sweep motion
+    case FACE_THINKING:   frameInterval = 100;  break; // smooth orbit motion
     case FACE_TALKING:    frameInterval = 130; break; // fast enough to look like real speech, not too flickery
-    case FACE_ERROR:      frameInterval = 70;  break; // smooth wobble
-    default:              frameInterval = 100; break;
+    case FACE_ERROR:      frameInterval = 120;  break; // smooth wobble
+    default:              frameInterval = 130; break;
   }
 
   if (now - _lastAnimMillis < frameInterval) return;
